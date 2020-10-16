@@ -1,2 +1,2 @@
-word_dict = [character for character in 'abcdefghijklmnoupqrstwxyz']
-dict_length = len(word_dict)
+dict_words = [character for character in 'abcdefghijklmnoupqrstwxyz']
+dict_length = len(dict_words)
