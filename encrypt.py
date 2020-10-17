@@ -2,7 +2,7 @@ from alphabet import dict_length, dict_words
 
 
 def shifting(character: str, shift: str) -> str:
-	# Error if character not in character_list
+	"""Error if character not in character_list"""
 	new_index = (dict_words.index(character) + dict_words.index(shift)) % dict_length
 	return dict_words[new_index]
 
