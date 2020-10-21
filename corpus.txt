@@ -1,14 +1,3 @@
-#! rnews 1312
-Path: alberta!mnetor!uunet!mcvax!ukc!dcl-cs!strath-cs!jml
-From: jml@cs.strath.ac.uk (Joseph McLean)
-Newsgroups: sci.math
-Subject: the extendability of digit sequences into primes
-Message-ID: <753@stracs.cs.strath.ac.uk>
-Date: 2 Dec 87 10:36:33 GMT
-Reply-To: jml@cs.strath.ac.uk (Joseph McLean)
-Organization: Comp. Sci. Dept., Strathclyde Univ., Scotland.
-Lines: 19
-
 Is the following conjecture reasonable and/or provable? :
 
 Given a sequence of digits, starting with a non-zero digit, of arbitrary
@@ -26,26 +15,10 @@ one can keep adding digits at the end and checking for primality ad
 infinitum, and the law of averages will do the rest. Of course this is
 totally groundless mathematically, so can anyone provide a heuristic
 argument with more weight?
+Text editors CANNOT simulate structure editors.  They can do a rather
+feeble job of it.  Text editors fall down when context information is
 
-        jml, the mad mathematician.
-#! rnews 3077
-Path: alberta!mnetor!uunet!husc6!psuvax1!burdvax!bigburd!fritzson
-From: fritzson@bigburd.PRC.Unisys.COM (Richard Fritzson)
-Newsgroups: comp.editors
-Subject: Re: lisp environments (Structure vs. text editors)
-Message-ID: <3375@bigburd.PRC.Unisys.COM>
-Date: 14 Dec 87 02:11:18 GMT
-References: <487@PT.CS.CMU.EDU> <460@cresswell.quintus.UUCP> <499@PT.CS.CMU.EDU>
-Sender: news@bigburd.PRC.Unisys.COM
-Organization: Unisys Corporation, Paoli Research Center; Paoli, PA
-Lines: 56
-
-In article <499@PT.CS.CMU.EDU> ralphw@IUS2.CS.CMU.EDU (Ralph Hyre) writes:
->In article <460@cresswell.quintus.UUCP> pds@quintus.UUCP (Peter Schachte) writes:
->>Text editors CANNOT simulate structure editors.  They can do a rather
->>feeble job of it.  Text editors fall down when context information is
->
->I disagree - a PROGRAMMABLE text editor can do anything you want.  This is
+I disagree - a PROGRAMMABLE text editor can do anything you want.  This is
 >because it's programmable.  Whether you're happy with the performance or a
 
 Sure it can do anything. The best way for a programmable text editor to
@@ -56,9 +29,9 @@ editing commands on the structure that is "really" being edited. Now you've
 shown that mocklisp (for example) is a language in which you can implement
 a structure editor. I doubt if it is the best way to do it though.
 
->>...For example:  a structure editor can supply different commands, different
->>facilities, for editing comments and code.
->Seems like there's the potential here for moby modefulness.  I can't see
+For example:  a structure editor can supply different commands, different
+facilities, for editing comments and code.
+Seems like there's the potential here for moby modefulness.  I can't see
 >why I would want different commands when I edit code compared with comments.
 
 I don't know about "commands", but Common Lisp comments are nothing
@@ -91,29 +64,6 @@ look for an opportunity to try SEdit on a D-machine.
 
 
 
-
---
-	-Rich Fritzson
-	 ARPA: fritzson@prc.unisys.com
-	 UUCP: {sdcrdcf,psuvax1,cbmvax}!burdvax!fritzson
-#! rnews 3135
-Path: alberta!mnetor!uunet!husc6!cmcl2!brl-adm!umd5!ames!sdcsvax!sdcc6!loral!dml
-From: dml@loral.UUCP (Dave Lewis)
-Newsgroups: rec.arts.movies
-Subject: Re: Live Action Amber Films
-Summary: Use Zelazny's descriptions!
-Message-ID: <1496@loral.UUCP>
-Date: 14 Dec 87 06:41:04 GMT
-References: <349@morningdew.BBN.COM> <2620001@hpcvlx.HP.COM>
-Reply-To: dml@loral.UUCP (Dave Lewis)
-Followup-To: rec.arts.movies
-Distribution: na
-Organization: Loral Instrumentation, San Diego
-Lines: 59
-
-In article <2620001@hpcvlx.HP.COM> markc@hpcvlx.HP.COM (Mark Cook) writes:
->>/ hpcvlx:rec.arts.movies / dkovar@lf-server-2.BBN.COM (David Kovar) /  7:07 am  Dec  9, 1987 /
->>
 >>  Well, someone else was wondering who would be the actors in a Tolkien
 >>film which brought to mind a favorite question of mine from a few years
 >>back: Who would play the parts of a Amber film? I used to have the
@@ -157,32 +107,8 @@ like mother of pearl.  Ann-Margret!
   That's all for now; if people are interested I can type in the whole 2-1/2
 pages of descriptions so we'll REALLY have something to argue over.
 
--------------------------------
-          Dave Lewis    Loral Instrumentation   San Diego
-
-  hp-sdd --\     ihnp4 --\
-  sdcrdcf --\      bang --\   kontron -\
-  csndvax ---\   calmasd -->-->!crash --\
-  celerity --->------->!sdcsvax!sdcc3 --->--->!loral!dml  (uucp)
-  dcdwest ---/                 gould9 --/
-
   "I'm alive and he's dead and that's the way I wanted it."
    -- Corwin, about Borel
-
--------------------------------
-#! rnews 2421
-Path: alberta!mnetor!uunet!mcvax!ukc!dcl-cs!strath-cs!jim
-From: jim@cs.strath.ac.uk (Jim Reid)
-Newsgroups: comp.mail.headers
-Subject: Re: RFC976 vs. the real world...
-Message-ID: <754@stracs.cs.strath.ac.uk>
-Date: 2 Dec 87 12:51:51 GMT
-References: <18533@amdahl.amdahl.com>
-Reply-To: jim@cs.strath.ac.uk
-Organization: Comp. Sci. Dept., Strathclyde Univ., Scotland.
-Lines: 40
-
-In article <18533@amdahl.amdahl.com> tron@uts.amdahl.com (Ronald S. Karr) writes:
 >Some Introduction:
 >However, we have conflicting ideas concerning what to do with sender
 >addresses in headers.  We do, now, support the idea that a pure !-path
@@ -215,30 +141,6 @@ mean send by uucp to A for relaying to user B on host C or does it mean
 send to C for them to relay to user B on uucp host A? Then what if C
 (or A) doesn't like addresses with '!' (or '@') signs in them?]
 
-		Jim
---
-ARPA:	jim%cs.strath.ac.uk@ucl-cs.arpa, jim@cs.strath.ac.uk
-UUCP:	jim@strath-cs.uucp, ...!seismo!mcvax!ukc!strath-cs!jim
-JANET:	jim@uk.ac.strath.cs
-
-"JANET domain ordering is swapped around so's there'd be some use for rev(1)!"
-#! rnews 3873
-Path: alberta!mnetor!uunet!husc6!cmcl2!brl-adm!umd5!ames!sdcsvax!sdcc6!loral!dml
-From: dml@loral.UUCP (Dave Lewis)
-Newsgroups: rec.arts.sf-lovers
-Subject: Re: One more long-gone show
-Summary: What S. F. movies should be
-Keywords: Questor
-Message-ID: <1497@loral.UUCP>
-Date: 14 Dec 87 06:45:22 GMT
-References: <1672@bsu-cs.UUCP>
-Reply-To: dml@loral.UUCP (Dave Lewis)
-Followup-To: rec.arts.sf-lovers
-Distribution: na
-Organization: Loral Instrumentation, San Diego
-Lines: 64
-
-In article <1672@bsu-cs.UUCP> cfchiesa@bsu-cs.UUCP (Christopher F. Chiesa) writes:
 >Anyone remember a movie called _The_Questor_Tapes_ ?  Basic premise: gov't
 >project constructs an android according to eccentric scientist's specs; and-
 
@@ -291,42 +193,10 @@ should take a lesson from. Very few other movies have impressed me as much
 as "2001: A Space Odyssey" and "The Questor Tapes". They show up the likes
 of"Close Encounters of the Third Kind" and "E.T." for the vapid silliness
 they are.
-
--------------------------------
-          Dave Lewis    Loral Instrumentation   San Diego
-
-  hp-sdd --\     ihnp4 --\
-  sdcrdcf --\      bang --\   kontron -\
-  csndvax ---\   calmasd -->-->!crash --\
-  celerity --->------->!sdcsvax!sdcc3 --->--->!loral!dml  (uucp)
-  dcdwest ---/                 gould9 --/
-
--------------------------------
-#! rnews 1384
-Path: alberta!mnetor!uunet!mcvax!ukc!its63b!hwcs!jack
-From: jack@cs.hw.ac.uk (Jack Campin)
-Newsgroups: rec.arts.sf-lovers
-Subject: Re: M. John Harrison
-Message-ID: <1560@brahma.cs.hw.ac.uk>
-Date: 2 Dec 87 18:20:17 GMT
-References: <1950@charon.unm.edu>
-Reply-To: jack@cs.glasgow.ac.uk (Jack Campin)
-Organization: PISA Project, Glesga Yoonie
-Lines: 23
-Summary:
-
 Expires:
-
 Sender:
-
 Followup-To:
-
-
-
-
 [ignore the above address and use my signature]
-
-
 By far the best thing I have read by MJH is a long short story called
 "Running Down", about a man with unwanted psychic powers that cause things
 to malfunction, decay and fall apart around him. It is set in a Britain
@@ -341,23 +211,6 @@ Wilson's.
 - jack
 
 --
-ARPA: jack%cs.glasgow.ac.uk@nss.cs.ucl.ac.uk
-JANET:jack@uk.ac.glasgow.cs       USENET: ...mcvax!ukc!cs.glasgow.ac.uk!jack
-Mail: Jack Campin, Computing Science Department, University of Glasgow,
-      17 Lilybank Gardens, Glasgow G12 8QQ, Scotland (041 339 8855 x 6045)
-#! rnews 1188
-Path: alberta!mnetor!uunet!mcvax!ukc!its63b!hwcs!jack
-From: jack@cs.hw.ac.uk (Jack Campin)
-Newsgroups: rec.music.classical
-Subject: Re: Tippett
-Message-ID: <1561@brahma.cs.hw.ac.uk>
-Date: 2 Dec 87 18:38:20 GMT
-References: <1950@bath63.ux63.bath.ac.uk>
-Reply-To: jack@cs.glasgow.ac.uk (Jack Campin)
-Organization: PISA Project, Glesga Yoonie
-Lines: 15
-Summary:
-
 Expires:
 
 Sender:
@@ -375,22 +228,6 @@ A problem I find with a lot of his music is the silly words. The man really
 shouldn't have tried writing his own libretti that often.
 I believe he's got another opera in the pipeline, due for its premiere in the
 next few months.
---
-ARPA: jack%cs.glasgow.ac.uk@nss.cs.ucl.ac.uk
-JANET:jack@uk.ac.glasgow.cs       USENET: ...mcvax!ukc!cs.glasgow.ac.uk!jack
-Mail: Jack Campin, Computing Science Department, University of Glasgow,
-      17 Lilybank Gardens, Glasgow G12 8QQ, Scotland (041 339 8855 x 6045)
-#! rnews 894
-Path: alberta!mnetor!uunet!mcvax!ukc!eagle!jg
-From: jg@eagle.ukc.ac.uk (J.Grant)
-Newsgroups: comp.sys.mac
-Subject: The Spinning watch cursor
-Message-ID: <4023@eagle.ukc.ac.uk>
-Date: 3 Dec 87 14:59:09 GMT
-Reply-To: jg@ukc.ac.uk (J.Grant)
-Organization: Computing Lab, University of Kent at Canterbury, UK.
-Lines: 11
-
 OK - I've changed my spinning watch back into the lovely sand-timer
 (remember the good old days?);  I've changed the CURS resource in the
 Finder and also in the System so that I have various quantities
@@ -400,21 +237,6 @@ More precisely, where does the watch that says 9 o'clock live, as
 now I get the magic watch followed by the sand1->7, then the watch
 again as the cycle repeats.  This only happens in the Finder, so I
 suspect that there must be a watch lurking elsewhere, but where?
-
-Ps. system 4.2b(5?) & Finder 6.0 (Mac 512Ke)
-#! rnews 3539
-Path: alberta!mnetor!uunet!mcvax!ukc!its63b!csnjr
-From: csnjr@its63b.ed.ac.uk (Nick Rothwell)
-Newsgroups: rec.music.synth,rec.music.makers
-Subject: Casio MG500, Roland MT-32, MIDI bug? [LONG]
-Summary: Where's the MIDI bug in this lot?:
-Keywords: MG500 MT-32 MIDI
-Message-ID: <805@its63b.ed.ac.uk>
-Date: 3 Dec 87 13:10:56 GMT
-Reply-To: nick%ed.lfcs@uk.ac.ucl.cs.nss (Nick Rothwell)
-Organization: LFCS, University of Edinburgh
-Lines: 46
-Xref: alberta rec.music.synth:1879 rec.music.makers:1070
 
 Last weekend a friend and I strolled into a music shop and ended up playing
 with the new Casio MG500 MIDI guitar linked into a Roland MT-32. I don't
@@ -460,21 +282,6 @@ chords properly without running out.)
 Nick Rothwell,	Laboratory for Foundations of Computer Science, Edinburgh.
 		nick%lfcs.ed.ac.uk@nss.cs.ucl.ac.uk
 		<Atlantic Ocean>!mcvax!ukc!lfcs!nick
-~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
-"Nothing's forgotten. Nothing is ever forgotten."   - Herne
-#! rnews 1505
-Path: alberta!mnetor!uunet!mcvax!ukc!dcl-cs!bath63!pes
-From: pes@ux63.bath.ac.uk (Smee)
-Newsgroups: comp.sys.atari.st
-Subject: Re: Resource file question
-Keywords: resource mwc rcs .rsc dri c
-Message-ID: <1963@bath63.ux63.bath.ac.uk>
-Date: 3 Dec 87 10:33:26 GMT
-References: <1592@wiley.UUCP>
-Reply-To: pes@ux63.bath.ac.uk (Smee)
-Organization: AUCC c/o University of Bath
-Lines: 19
-
 
 You might try looking to see if K-Resource is still available (by Kuma Software,
 who else?).  It's been out a long while.  It's now available bundled with some
@@ -494,20 +301,7 @@ but the program is pretty intuitive to use which makes up for some of that.
 It does, however, assume that you have some sort of a clue as to what the
 various resource items/flags mean and do -- it doesn't teach you how to use
 RSC files or what they mean, but rather gives a handle for making them.
-#! rnews 1258
-Path: alberta!mnetor!uunet!mcvax!ukc!its63b!hwcs!neil
-From: neil@cs.hw.ac.uk (Neil Forsyth)
-Newsgroups: comp.sys.atari.st
-Subject: Bug in bets test Gulam
-Keywords: none
-Message-ID: <1562@brahma.cs.hw.ac.uk>
-Date: 3 Dec 87 09:46:32 GMT
-Organization: Computer Science, Heriot-Watt U., Scotland
-Lines: 28
-
-
 I think I have found a bug in the latest version of Gulam.
-
          alias test 'echo $<'
 
 produces a couple of spurious charcters on the input line.
@@ -527,25 +321,6 @@ told that ordinary decent people are fed up in this country with being sick and
 tired. I'm certainly not and I'm sick and tired of being told that I am!"
 - Monty Python
 
- Neil Forsyth                           JANET:  neil@uk.ac.hw.cs
- Dept. of Computer Science              ARPA:   neil@cs.hw.ac.uk
- Heriot-Watt University                 UUCP:   ..!ukc!cs.hw.ac.uk!neil
- Edinburgh
- Scotland
--------------------------------------------------------------------------------
-#! rnews 1009
-Path: alberta!mnetor!uunet!mcvax!ukc!its63b!hwcs!jack
-From: jack@cs.hw.ac.uk (Jack Campin)
-Newsgroups: comp.sys.mac
-Subject: Re: how strong of a magnet?
-Message-ID: <1564@brahma.cs.hw.ac.uk>
-Date: 3 Dec 87 18:59:42 GMT
-References: <9554@shemp.UCLA.EDU>
-Reply-To: jack@cs.glasgow.ac.uk (Jack Campin)
-Organization: PISA Project, Glesga Yoonie
-Lines: 12
-Summary:
-
 Expires:
 
 Sender:
@@ -561,25 +336,7 @@ to wipe floppies.
 Then again, I have also heard that story about ordinary underground railways
 and it certainly isn't true of them.
 --
-ARPA: jack%cs.glasgow.ac.uk@nss.cs.ucl.ac.uk
-JANET:jack@uk.ac.glasgow.cs       USENET: ...mcvax!ukc!cs.glasgow.ac.uk!jack
-Mail: Jack Campin, Computing Science Department, University of Glasgow,
-      17 Lilybank Gardens, Glasgow G12 8QQ, Scotland (041 339 8855 x 6045)
-#! rnews 988
-Path: alberta!mnetor!uunet!mcvax!ukc!its63b!csan
-From: csan@its63b.ed.ac.uk (Andie)
-Newsgroups: comp.sys.atari.st
-Subject: Re: Resource file question
-Keywords: Kuma
-Message-ID: <808@its63b.ed.ac.uk>
-Date: 3 Dec 87 23:08:12 GMT
-References: <1592@wiley.UUCP> <1298@saturn.ucsc.edu>
-Reply-To: csan@its63b.ed.ac.uk (Andie)
-Organization: Computer Science Department, Edinburgh University
-Lines: 14
 
-In article <1298@saturn.ucsc.edu> koreth@ssyx.ucsc.edu (Steven Grimm) writes:
->
 >Kuma Software makes the best resource editor I've seen.  It's called
 >"K-Resource" and is a really friendly, well-thought-out piece of software.
 >
@@ -587,21 +344,9 @@ I am in total agreement here. I use it in preference to any others I have.
 
 Andie Ness . Department of Computer Science ,Edinburgh University.
 
-ARPA:  csan%ed.itspna@nss.cs.ucl.ac.uk   UUCP:  ...!uunet!mcvax!ukc!itspna!csan
-                   	JANET: csan@uk.ac.ed.itspna
 
 % These are my own views and any resemblance to any coherent reasoning is
 % probably a typo.
-#! rnews 852
-Path: alberta!mnetor!uunet!mcvax!ukc!stc!idec!howellg
-From: howellg@idec.stc.co.uk (Gareth Howell)
-Newsgroups: rec.ham-radio.packet,comp.protocols.tcp-ip
-Subject: NEEDED: KISS for TNC220
-Message-ID: <869@idec.stc.co.uk>
-Date: 1 Dec 87 09:05:59 GMT
-Organization: ICL Network Systems, Stevenage, Herts. UK
-Lines: 12
-Xref: alberta rec.ham-radio.packet:767 comp.protocols.tcp-ip:1918
 
 I have a Pacomm TNC220 on which I want to run KISS and thence the KA9Q
 tcp/ip package.  Unfortunately I don't have a KISS for the TNC.
@@ -609,22 +354,6 @@ Can anybody help.  I would prefer the co-resident bootstrap with a
 downloaded KISS module if possible.
 ta Gareth
 ====
-
---
-Gareth Howell  <howellg@idec.stc.co.uk>  G6KVK @ IO91VX
-ICL NS PNBC, England, SG1 1YB    Tel:+44 (0)438 738294
-howellg%idec%ukc@mcvax.uucp, mcvax!ukc!idec!howellg@uunet.uu.net
-G6KVK @ G4SPV (uk packet 144.650MHz)
-#! rnews 710
-Path: alberta!mnetor!uunet!mcvax!ukc!stc!hilda
-From: hilda@tcom.stc.co.uk ( Jeff Tracey )
-Newsgroups: rec.arts.sf-lovers
-Subject: Thunderbirds are GO!!!
-Keywords: FAB
-Message-ID: <1503@arran.tcom.stc.co.uk>
-Date: 2 Dec 87 10:54:39 GMT
-Organization: STC Telecoms, London N11 1HB.
-Lines: 14
 
 A few quick trivia questions on Thunderbirds :-
 
@@ -636,21 +365,6 @@ A few quick trivia questions on Thunderbirds :-
 
 
 Regards,
-
-Steve Hillyer.  <hilda@tcom.stc.co.uk> || ...uunet!mcvax!ukc!stc!hilda
-STC Telecommunications, Oakleigh Rd South, London N11 1HB.
-Phone : +44 1 368 1234 x3358
-#! rnews 1159
-Path: alberta!mnetor!uunet!mcvax!ukc!stc!btnix!crouch
-From: crouch@btnix.axion.bt.co.uk (Chris Rouch)
-Newsgroups: comp.os.vms
-Subject: callable TPU?
-Keywords: TPU callable editor
-Message-ID: <632@btnix.axion.bt.co.uk>
-Date: 3 Dec 87 11:33:58 GMT
-Organization: British Telecom Research Labs, Martlesham Heath, IPSWICH, UK
-Lines: 17
-
 I read somewhere that there is a callable version of EDT, available by using
 EDT$EDIT(...). Does anyone know if there is a similar function for the TPU
 editor and/or other commands such as MAIL, PRINT etc. If somebody could
@@ -659,26 +373,7 @@ information (assuming there is one), I would be very grateful.
 
 		Chris Rouch
 
---------------------------------------------------------------------------------
-vax to vax (UUCP)       CRouch@axion.bt.co.uk (...!ukc!btnix!crouch)
-desk to desk            RT3124, 310 SSTF,
-			British Telecom Research Laboratories,
-			Martlesham Heath, IPSWICH, IP5 7RE, UK.
-voice to voice          +44 473 646093
-
 	"Ours is not to look back, ours to continue the crack."
---------------------------------------------------------------------------------
-#! rnews 1090
-Path: alberta!mnetor!uunet!mcvax!ukc!stc!pete
-From: pete@tcom.stc.co.uk (Peter Kendell)
-Newsgroups: rec.music.classical
-Subject: Durufle virgin seeks advice
-Message-ID: <483@stc-f.tcom.stc.co.uk>
-Date: 3 Dec 87 11:50:35 GMT
-Organization: STC Telecoms, London N11 1HB.
-Lines: 25
-
-
 	Being curious, as the name was completely new to me, I borrowed
 	the Hyperion CD of Durufle's Requiem from my local public
 	library. I enjoyed it very much and would like to find out more
@@ -698,25 +393,6 @@ Lines: 25
 
 
 
---
-------------------------------------------------------------------------------
-|		  Peter Kendell <pete@tcom.stc.co.uk>	        	     |
-|				...{uunet!}mcvax!ukc!stc!pete		     |
-------------------------------------------------------------------------------
-#! rnews 1235
-Path: alberta!mnetor!uunet!mcvax!ukc!stc!praxis!gauss!drb
-From: drb@praxis.co.uk (David Brownbridge)
-Newsgroups: comp.unix.wizards
-Subject: Re: //host vs "mount point"
-Message-ID: <1606@newton.praxis.co.uk>
-Date: 3 Dec 87 12:42:36 GMT
-References: <648@tut.cis.ohio-state.edu> <1668@tut.cis.ohio-state.edu> <38c15248.4580@hi-csc.UUCP> <9559@mimsy.UUCP> <411@PT.CS.CMU.EDU>
-Sender: nobody@praxis.co.uk
-Reply-To: drb%praxis.uucp@ukc.ac.uk(David Brownbridge)
-Organization: Praxis Systems plc, Bath, UK
-Lines: 19
-
-In article <411@PT.CS.CMU.EDU> jgm@K.GP.CS.CMU.EDU (John Myers) writes:
 >Just to add to the confusion, let me put in a plug in for the Carnegie-Mellon
 >University Computer Science Department's syntax:
 >
@@ -732,22 +408,6 @@ We built a system which also allowed super-super-roots and so on ad infinitum.
 Newcastle upon Tyne Computing Laboratory's syntax" :-) Some old-timers must
 remember the "Newcastle Connection" distributed UNIX system which Lindsay
 Marshall and I wrote in 1981-2.
-
-"Not for the iron fist but for the helping hand"
-[Billy Bragg/Oyster Band "Between The Wars"]
-#! rnews 1785
-Path: alberta!mnetor!uunet!mcvax!ukc!stc!datlog!slxsys!jpp
-From: jpp@slxsys.specialix.co.uk (John Pettitt)
-Newsgroups: comp.unix.xenix
-Subject: Re: smail2.5
-Summary: smail on xenix without writing new programs
-Keywords: At last, a 'real' mailer for Xenix (are you listening SCO) :-)
-Message-ID: <106@slxsys.specialix.co.uk>
-Date: 3 Dec 87 06:44:07 GMT
-References: <484@rel.eds.com>
-Reply-To: jpp@slxsys.UUCP (John Pettitt)
-Organization: Specialix International, London, UK.
-Lines: 27
 
 In article <484@rel.eds.com> bob@rel.eds.com (Bob Leffler) writes:
 >During the last several weeks there have been numerous solutions posted to
@@ -772,20 +432,6 @@ micnet (sco's RS232 "LAN") still works.
 
 
 
---
-John Pettitt G6KCQ, CIX jpettitt, Voice +44 1 398 9422
-UUCP:  ...uunet!mcvax!ukc!pyrltd!slxsys!jpp  (jpp@slxsys.co.uk)
-Disclaimer: I don't even own a cat to share my views !
-#! rnews 1287
-Path: alberta!mnetor!uunet!mcvax!lambert
-From: lambert@cwi.nl (Lambert Meertens)
-Newsgroups: sci.math
-Subject: Re: Least-squares fitting
-Message-ID: <135@piring.cwi.nl>
-Date: 5 Dec 87 14:41:10 GMT
-References: <1823@culdev1.UUCP>
-Organization: CWI, Amsterdam
-Lines: 28
 
 In article <1823@culdev1.UUCP> drw@culdev1.UUCP (Dale Worley) writes:
 ) Is is known how to perform least-squares fitting where the "error" is
@@ -813,18 +459,6 @@ algebraically, without going through the arctan routine, but it is harder
 then to get the signs correct.)
 
 --
-
-Lambert Meertens, CWI, Amsterdam; lambert@cwi.nl
-#! rnews 852
-Path: alberta!mnetor!uunet!mcvax!inria!imag!bordier
-From: bordier@imag.UUCP (Jerome Bordier)
-Newsgroups: comp.sys.mac
-Subject: Re: Arabic Wordprocessing / Publishing
-Message-ID: <2285@imag.UUCP>
-Date: 4 Dec 87 10:24:35 GMT
-Reply-To: bordier@imag.UUCP (Jerome Bordier)
-Organization: IMAG, University of Grenoble, France
-Lines: 14
 
 "Winsoft", a small firm developping and selling software for the Macintosh,
 has made "Wintext", a word processor fully compatible with the "Arabic
