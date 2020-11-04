@@ -1,8 +1,9 @@
 import functools
 from collections import defaultdict
 
-ENGLISH_IC = 0.067
-ERROR_MARGIN = 0.12
+LOOSE_ENGLISH_IC = 0.062
+ERROR_MARGIN = 0.05
+STRICT_ENGLISH_IC = 0.0615
 
 _HASH_MAP_ = defaultdict(list)
 _target_wordlist_file_ = 'resources/english_wordlist.txt'
@@ -49,7 +50,7 @@ def is_text_partially_english(text: str, lower_bound: int) -> int:
 
 
 def is_within_allowed_English_IC_margin(text: str) -> bool:
-	if ENGLISH_IC * (1 - ERROR_MARGIN) <= calculate_IC(text) <= ENGLISH_IC * (1 + ERROR_MARGIN):
+	if LOOSE_ENGLISH_IC * (1 - ERROR_MARGIN) <= calculate_IC(text) <= LOOSE_ENGLISH_IC * (1 + ERROR_MARGIN):
 		return True
 	else:
 		return False
@@ -66,12 +67,14 @@ def calculate_IC(text: str) -> float:
 
 
 def find_key_length(text: str) -> int:
-	key_length = 1
+	key_length = 0
 	
-	# IC is not mono
-	previous_IC = calculate_IC(text)
-	if previous_IC > 0.06:
-		return key_length
+	print('debugging')
+	
+	# keep history of last 3
+	IC_triad = []
+	
+	candidate = None
 	
 	while True:
 		key_length += 1
@@ -85,8 +88,29 @@ def find_key_length(text: str) -> int:
 			current_IC += calculate_IC(''.join(text_group))
 		current_IC /= key_length
 		
-		if current_IC > 0.06:
-			break
+		print(f'Current length: %s, IC: %s' % (key_length, current_IC))
+		
+		# if current_IC >= 0.0615:
+		# 	candidate = key_length
+		# 	break
+		
+		if len(IC_triad) > 3:
+			IC_triad.pop(0)
+		IC_triad.append(current_IC)
+		
+		# 	IC of a key component satisfy:
+		#   * if key_length = 1 --> IC > IC_2
+		#   * else IC_(X-1) < IC_(X) > IC_(X+1)
+		if key_length == 1:
+			continue
+		elif key_length == 2:
+			if IC_triad[0] > STRICT_ENGLISH_IC and IC_triad[0] > IC_triad[1]:
+				key_length = 1
+				break
+		else:
+			if IC_triad[1] > STRICT_ENGLISH_IC and IC_triad[0] < IC_triad[1] > IC_triad[2]:
+				key_length -= 2
+				break
 	
 	return key_length
 
@@ -94,8 +118,7 @@ def find_key_length(text: str) -> int:
 if __name__ == '__main__':
 	print(is_english_word('hello'))
 	
-	target = 'wellhellothere'
+	target = 'wellhellothererrrr'
 	print(target, len(target))
 	print(is_text_english(target))
-	for i in range(len(target)):
-		print(i, is_text_partially_english(target, len(target) - i))
+	print(is_text_partially_english(target, len(target) - 3))

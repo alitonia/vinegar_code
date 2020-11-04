@@ -7,13 +7,13 @@ from vinegar_tools import find_key_length
 if __name__ == '__main__':
 	init(autoreset=True)
 	path = 'resources/corpus.txt'
-	key = 'apkfhgdsftgdsgfd'
+	key = 'apxapjdeoiesawh'
 	
 	source_file = open(path, 'r')
 	text = source_file.read().rstrip()[:(26 * 50 * len(key))]
 	cypher_text = vinegar_it(text, key)
 	
-	print(f'{Fore.BLUE}Key: {Fore.YELLOW}%s' % key)
+	print(f'{Fore.BLUE}Key: {Fore.YELLOW}%s, length: {Fore.YELLOW}%s' % (key, len(key)))
 	print(f'{Fore.BLUE}Plain text:{Style.RESET_ALL}  ' + text[:100] + '...')
 	print(f'{Fore.BLUE}Cypher text:{Style.RESET_ALL} ' + cypher_text[:100] + '...')
 	print('-' * 20)

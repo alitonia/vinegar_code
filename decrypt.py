@@ -144,7 +144,7 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	possible_keys_3 = get_key_vote(possible_keys_2)
 	
 	if DETAIL_MODE:
-		print(f'3. Using democratic vote: {Fore.YELLOW} %s' % sorted(possible_keys_3))
+		print(f'3. Using democratic voting: {Fore.YELLOW} %s' % sorted(possible_keys_3))
 	
 	if len(possible_keys_3) == 0:
 		return possible_keys_2[0]
@@ -156,6 +156,7 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 		                   if calculate_IC(possible_keys_3[0]) >= calculate_IC(possible_keys_3[1]) else
 		                   possible_keys_3[1]
 		                   )
+
 	if DETAIL_MODE:
 		print(f'4. Using luck:{Fore.YELLOW} %s' % possible_keys_4)
 	
