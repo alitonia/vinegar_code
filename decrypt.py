@@ -3,10 +3,10 @@ import collections
 from colorama import Fore
 
 from alphabet import dict_words, dict_length
-from vinegar_tools import is_within_allowed_English_IC_margin, calculate_IC, is_text_partially_english
+from vinegar_tools import is_text_within_allowed_English_IC_margin, calculate_IC, is_text_partially_english
 
-DETAIL_MODE = True
-PROXIMITY = 0.85
+_DETAIL_MODE_ = True
+_PROXIMITY_ = 0.85
 
 _holder_ = []
 _INDEX_OF_E_ = dict_words.index('e')
@@ -40,11 +40,11 @@ def get_key_of_highest_value_from_dict(occurrence_dict: dict) -> list:
 		if current_max_frequency < frequency:
 			current_max_frequency = frequency
 			result = list(filter(
-				# get close max
-				lambda thing: thing[1] >= current_max_frequency * PROXIMITY,
+				# get close max-es
+				lambda thing: thing[1] >= current_max_frequency * _PROXIMITY_,
 				result))
 			result.append([item, frequency])
-		elif (current_max_frequency * PROXIMITY) <= frequency:
+		elif (current_max_frequency * _PROXIMITY_) <= frequency:
 			result.append([item, frequency])
 	
 	return result
@@ -60,6 +60,7 @@ def get_group_of_key_of_highest_value_from_dict(occurrence_dict: dict) -> []:
 		return [sorted_symbol_list[x] for x in range(5)]
 
 
+# ex: [[a,b], [c,d]] -> [ab, ac, bc, bd]
 def get_key_from_nested_list_core(most_frequent_characters: list, index: int, initial: str):
 	if index == len(most_frequent_characters):
 		_holder_.append(initial)
@@ -79,6 +80,7 @@ def get_key_from_nested_list(most_frequent_characters: list) -> list:
 	return _holder_
 
 
+# Take value with most occurrence at each index-es.
 def get_key_vote(possible_keys: list) -> list:
 	if len(possible_keys) == 2:
 		return possible_keys
@@ -119,10 +121,10 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	# Cartesian product of characters with highest frequency in each position
 	possible_keys_1 = []
 	for key in possible_keys:
-		if is_within_allowed_English_IC_margin(decrypt_with_key(cypher_text, key)):
+		if is_text_within_allowed_English_IC_margin(decrypt_with_key(cypher_text, key)):
 			possible_keys_1.append(key)
 	
-	if DETAIL_MODE:
+	if _DETAIL_MODE_:
 		print(f'1. Using IC : {Fore.YELLOW}%s' % sorted(possible_keys_1))
 	
 	if len(possible_keys_1) == 0:
@@ -131,10 +133,15 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	# test if all keys can decrypt to english-ish paragraph
 	possible_keys_2 = []
 	for key in possible_keys_1:
+		# Take the first 30 characters to check.
+		# Increase this give higher precision result, but make the decrypting slower
+		# Max length of words in dictionary is 14,
+		# so we minus 14 for cases where we cut in the middle of words
+		
 		if is_text_partially_english(decrypt_with_key(cypher_text[:30], key), 14):
 			possible_keys_2.append(key)
 	
-	if DETAIL_MODE:
+	if _DETAIL_MODE_:
 		print(f'2. Using word detection: {Fore.YELLOW}%s' % sorted(possible_keys_2))
 	
 	if len(possible_keys_2) == 0:
@@ -143,7 +150,7 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	# Vote for most popular character in each position
 	possible_keys_3 = get_key_vote(possible_keys_2)
 	
-	if DETAIL_MODE:
+	if _DETAIL_MODE_:
 		print(f'3. Using democratic voting: {Fore.YELLOW} %s' % sorted(possible_keys_3))
 	
 	if len(possible_keys_3) == 0:
@@ -156,8 +163,8 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 		                   if calculate_IC(possible_keys_3[0]) >= calculate_IC(possible_keys_3[1]) else
 		                   possible_keys_3[1]
 		                   )
-
-	if DETAIL_MODE:
+	
+	if _DETAIL_MODE_:
 		print(f'4. Using luck:{Fore.YELLOW} %s' % possible_keys_4)
 	
 	return decrypt_with_key(cypher_text, possible_keys_4)

@@ -1,9 +1,9 @@
 import functools
 from collections import defaultdict
 
-LOOSE_ENGLISH_IC = 0.062
-ERROR_MARGIN = 0.05
-STRICT_ENGLISH_IC = 0.0615
+_LOOSE_ENGLISH_IC_ = 0.062
+_ERROR_MARGIN_ = 0.05
+_STRICT_ENGLISH_IC_ = 0.0615
 
 _HASH_MAP_ = defaultdict(list)
 _target_wordlist_file_ = 'resources/english_wordlist.txt'
@@ -49,8 +49,8 @@ def is_text_partially_english(text: str, lower_bound: int) -> int:
 	return False
 
 
-def is_within_allowed_English_IC_margin(text: str) -> bool:
-	if LOOSE_ENGLISH_IC * (1 - ERROR_MARGIN) <= calculate_IC(text) <= LOOSE_ENGLISH_IC * (1 + ERROR_MARGIN):
+def is_text_within_allowed_English_IC_margin(text: str) -> bool:
+	if _LOOSE_ENGLISH_IC_ * (1 - _ERROR_MARGIN_) <= calculate_IC(text) <= _LOOSE_ENGLISH_IC_ * (1 + _ERROR_MARGIN_):
 		return True
 	else:
 		return False
@@ -68,13 +68,8 @@ def calculate_IC(text: str) -> float:
 
 def find_key_length(text: str) -> int:
 	key_length = 0
-	
-	print('debugging')
-	
 	# keep history of last 3
 	IC_triad = []
-	
-	candidate = None
 	
 	while True:
 		key_length += 1
@@ -88,12 +83,7 @@ def find_key_length(text: str) -> int:
 			current_IC += calculate_IC(''.join(text_group))
 		current_IC /= key_length
 		
-		print(f'Current length: %s, IC: %s' % (key_length, current_IC))
-		
-		# if current_IC >= 0.0615:
-		# 	candidate = key_length
-		# 	break
-		
+		# print(f'Current length: %s, IC: %s' % (key_length, current_IC))
 		if len(IC_triad) > 3:
 			IC_triad.pop(0)
 		IC_triad.append(current_IC)
@@ -104,11 +94,11 @@ def find_key_length(text: str) -> int:
 		if key_length == 1:
 			continue
 		elif key_length == 2:
-			if IC_triad[0] > STRICT_ENGLISH_IC and IC_triad[0] > IC_triad[1]:
+			if IC_triad[0] > _STRICT_ENGLISH_IC_ and IC_triad[0] > IC_triad[1]:
 				key_length = 1
 				break
 		else:
-			if IC_triad[1] > STRICT_ENGLISH_IC and IC_triad[0] < IC_triad[1] > IC_triad[2]:
+			if IC_triad[1] > _STRICT_ENGLISH_IC_ and IC_triad[0] < IC_triad[1] > IC_triad[2]:
 				key_length -= 2
 				break
 	
