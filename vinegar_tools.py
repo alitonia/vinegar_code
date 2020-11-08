@@ -68,10 +68,11 @@ def calculate_IC(text: str) -> float:
 
 def find_key_length(text: str) -> int:
 	key_length = 0
+	MAXIMUM_KEY_LENGTH = 100
 	# keep history of last 3
 	IC_triad = []
 	
-	while True:
+	for i in range(min(len(text), MAXIMUM_KEY_LENGTH + 1)):
 		key_length += 1
 		text_groups = [[] for _ in range(key_length)]
 		

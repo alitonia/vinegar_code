@@ -95,6 +95,27 @@ def get_key_vote(possible_keys: list) -> list:
 	return [''.join(result)]
 
 
+def reduce_key(possible_keys_4: str) -> str:
+	"""
+	Reduce to minimum key. Ex: 'ababab' -> 'ab'
+	:param possible_keys_4: current key
+	:return: reduced key
+	"""
+	for i in range(1, len(possible_keys_4)):
+		if len(possible_keys_4) % i == 0:
+			j = 0
+			k = i * 2
+			divider = i
+			while k <= len(possible_keys_4):
+				if possible_keys_4[j:i] != possible_keys_4[i:k]:
+					divider = -1
+					break
+				j, i, k = i, k, k + divider
+			if k >= len(possible_keys_4) and divider != -1:
+				return possible_keys_4[0: divider]
+	return possible_keys_4
+
+
 def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	# Divide into groups.
 	# --> each group will have character frequency similar to English?
@@ -167,4 +188,14 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	if _DETAIL_MODE_:
 		print(f'4. Using luck:{Fore.YELLOW} %s' % possible_keys_4)
 	
-	return decrypt_with_key(cypher_text, possible_keys_4)
+	possible_keys_5 = reduce_key(possible_keys_4)
+	
+	if _DETAIL_MODE_:
+		print(f'5. Use reduce key:{Fore.YELLOW} %s' % possible_keys_5)
+	
+	return decrypt_with_key(cypher_text, possible_keys_5)
+
+
+if __name__ == '__main__':
+	print(reduce_key('abab'))
+	print(reduce_key('xabab'))
