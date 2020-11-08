@@ -1,12 +1,12 @@
 # Vinegar decryption
 
-Solving [Vigenère encryption](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher])
+Solving [Vigenère encryption](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher]).
 
 ### How to use
 
-* Install `python3`
-* Install the following libraries: `re`, `colorama`, `collections`, `functools`
-* Run `main.py`
+* Install `python3`.
+* Install the following libraries: `re`, `colorama`, `collections`, `functools`.
+* Run `main.py`.
 
 ### How it works
 
@@ -24,6 +24,7 @@ Solving [Vigenère encryption](https://en.wikipedia.org/wiki/Vigen%C3%A8re_ciphe
     * Detect sequence of English words in text decrypted by a key.
     * Vote for which character should be used based on majority vote.
     * Take a random one.
+    * Reduce to minimum key.
 
 ### How to improve
 
