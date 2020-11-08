@@ -50,7 +50,7 @@ def is_text_partially_english(text: str, lower_bound: int) -> int:
 
 
 def is_text_within_allowed_English_IC_margin(text: str) -> bool:
-	if _LOOSE_ENGLISH_IC_ * (1 - _ERROR_MARGIN_) <= calculate_IC(text) <= _LOOSE_ENGLISH_IC_ * (1 + _ERROR_MARGIN_):
+	if _LOOSE_ENGLISH_IC_ * (1 - _ERROR_MARGIN_) <= calculate_IC(text):
 		return True
 	else:
 		return False
@@ -72,7 +72,7 @@ def find_key_length(text: str) -> int:
 	# keep history of last 3
 	IC_triad = []
 	
-	for i in range(min(len(text), MAXIMUM_KEY_LENGTH + 1)):
+	for _ in range(min(len(text), MAXIMUM_KEY_LENGTH + 1)):
 		key_length += 1
 		text_groups = [[] for _ in range(key_length)]
 		
@@ -84,7 +84,8 @@ def find_key_length(text: str) -> int:
 			current_IC += calculate_IC(''.join(text_group))
 		current_IC /= key_length
 		
-		# print(f'Current length: %s, IC: %s' % (key_length, current_IC))
+		print(f'Current length: %s, IC: %s' % (key_length, current_IC))
+		
 		if len(IC_triad) > 3:
 			IC_triad.pop(0)
 		IC_triad.append(current_IC)
@@ -97,6 +98,10 @@ def find_key_length(text: str) -> int:
 		elif key_length == 2:
 			if IC_triad[0] > _STRICT_ENGLISH_IC_ and IC_triad[0] > IC_triad[1]:
 				key_length = 1
+				break
+		elif key_length == 3:
+			if IC_triad[0] > _STRICT_ENGLISH_IC_ and IC_triad[0] > IC_triad[1]:
+				key_length = 2
 				break
 		else:
 			if IC_triad[1] > _STRICT_ENGLISH_IC_ and IC_triad[0] < IC_triad[1] > IC_triad[2]:

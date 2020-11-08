@@ -7,7 +7,7 @@ from vinegar_tools import find_key_length
 if __name__ == '__main__':
 	init(autoreset=True)
 	path = 'resources/corpus.txt'
-	key = 'apxapjdeoiesawh'
+	key = 'abhdee'
 	
 	source_file = open(path, 'r')
 	text = source_file.read().rstrip()[:(26 * 50 * len(key))]

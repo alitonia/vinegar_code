@@ -1,6 +1,6 @@
 import collections
 
-from colorama import Fore
+from colorama import Fore, Style
 
 from alphabet import dict_words, dict_length
 from vinegar_tools import is_text_within_allowed_English_IC_margin, calculate_IC, is_text_partially_english
@@ -134,22 +134,44 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	                            character_occurrences]
 	
 	# each highest occurrence correspond to 'e'. Calculate distance from 'e' ---> key
+	
 	possible_keys = get_key_from_nested_list(most_frequent_characters)
+	
+	if _DETAIL_MODE_:
+		print(f'0. Raw keys :')
+		print(f'Using frequency analysis.....')
+		print(f' => {Fore.YELLOW}%s' % sorted(possible_keys))
 	
 	if len(possible_keys) == 0:
 		return ''
 	
+	if _DETAIL_MODE_:
+		print(f'1. Using IC :')
+	
 	# Cartesian product of characters with highest frequency in each position
 	possible_keys_1 = []
 	for key in possible_keys:
-		if is_text_within_allowed_English_IC_margin(decrypt_with_key(cypher_text, key)):
+		maybe_decrypted_text = decrypt_with_key(cypher_text, key)
+		decrypted_IC = calculate_IC(maybe_decrypted_text)
+		ok = is_text_within_allowed_English_IC_margin(maybe_decrypted_text)
+		if _DETAIL_MODE_:
+			print(
+				f'\t trying key {Fore.YELLOW}%s{Style.RESET_ALL},'
+				f' IC: {Fore.YELLOW}%s{Style.RESET_ALL}'
+				f'--> {f"{Fore.GREEN}ok{Style.RESET_ALL}" if ok else f"{Fore.RED}not ok{Style.RESET_ALL}"}'
+				% (key, decrypted_IC)
+			)
+		if ok:
 			possible_keys_1.append(key)
 	
 	if _DETAIL_MODE_:
-		print(f'1. Using IC : {Fore.YELLOW}%s' % sorted(possible_keys_1))
+		print(f' => {Fore.YELLOW}%s' % sorted(possible_keys_1))
 	
 	if len(possible_keys_1) == 0:
 		return possible_keys[0]
+	
+	if _DETAIL_MODE_:
+		print(f'2. Using word detection:')
 	
 	# test if all keys can decrypt to english-ish paragraph
 	possible_keys_2 = []
@@ -158,12 +180,21 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 		# Increase this give higher precision result, but make the decrypting slower
 		# Max length of words in dictionary is 14,
 		# so we minus 14 for cases where we cut in the middle of words
+		possible_decrypted_text = decrypt_with_key(cypher_text[:30], key)
+		ok = is_text_partially_english(possible_decrypted_text, 14)
 		
-		if is_text_partially_english(decrypt_with_key(cypher_text[:30], key), 14):
+		if _DETAIL_MODE_:
+			print(
+				f'\t key {Fore.YELLOW}%s{Style.RESET_ALL},'
+				f' sample text: {Fore.YELLOW}%s{Style.RESET_ALL} '
+				f'--> {f"{Fore.GREEN}ok{Style.RESET_ALL}" if ok else f"{Fore.RED}not ok{Style.RESET_ALL}"}'
+				% (key, possible_decrypted_text))
+		
+		if ok:
 			possible_keys_2.append(key)
 	
 	if _DETAIL_MODE_:
-		print(f'2. Using word detection: {Fore.YELLOW}%s' % sorted(possible_keys_2))
+		print(f' => {Fore.YELLOW}%s' % sorted(possible_keys_2))
 	
 	if len(possible_keys_2) == 0:
 		return possible_keys_1[0]
@@ -172,7 +203,7 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 	possible_keys_3 = get_key_vote(possible_keys_2)
 	
 	if _DETAIL_MODE_:
-		print(f'3. Using democratic voting: {Fore.YELLOW} %s' % sorted(possible_keys_3))
+		print(f'3. Using democratic voting:\n => {Fore.YELLOW} %s' % sorted(possible_keys_3))
 	
 	if len(possible_keys_3) == 0:
 		return possible_keys_2[0]
@@ -186,12 +217,12 @@ def decrypt_with_key_length(cypher_text: str, key_length: int) -> str:
 		                   )
 	
 	if _DETAIL_MODE_:
-		print(f'4. Using luck:{Fore.YELLOW} %s' % possible_keys_4)
+		print(f'4. Using luck:\n =>{Fore.YELLOW} %s' % possible_keys_4)
 	
 	possible_keys_5 = reduce_key(possible_keys_4)
 	
 	if _DETAIL_MODE_:
-		print(f'5. Use reduce key:{Fore.YELLOW} %s' % possible_keys_5)
+		print(f'5. Use reduce key:\n =>{Fore.YELLOW} %s' % possible_keys_5)
 	
 	return decrypt_with_key(cypher_text, possible_keys_5)
 
